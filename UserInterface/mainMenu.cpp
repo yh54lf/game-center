@@ -3,9 +3,9 @@
 #include <ctime>
 #include <string>
 #include "mainMenu.h"
-#include "C:\Users\Benjamin\Desktop\CS 103\CS103_Project_GameCenter\Minesweeper\minesweeper.cpp"
-#include "C:\Users\Benjamin\Desktop\CS 103\CS103_Project_GameCenter\HorseRace\horseRace.cpp"
-#include "C:\Users\Benjamin\Desktop\CS 103\CS103_Project_GameCenter\Blackjack\blackJack.cpp"
+#include "C:\Users\Benjamin\Desktop\games\game-center\Minesweeper\minesweeper.cpp"
+#include "C:\Users\Benjamin\Desktop\games\game-center\HorseRace\horseRace.cpp"
+#include "C:\Users\Benjamin\Desktop\games\game-center\Blackjack\blackJack.cpp"
 
 GameCenter::GameCenter()
 {

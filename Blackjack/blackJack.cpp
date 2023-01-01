@@ -102,6 +102,9 @@ void Blackjack::playerTurn()
         {
             break;
         }
+
+        else
+            cout << "Invalid choice" << endl;
     }
 }
 void Blackjack::dealerTurn()

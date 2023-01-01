@@ -106,8 +106,20 @@ void Race::printLane(int horseNum)
 }
 int Race::horseBet()
 {
+    bool test = true;
     int bet;
-    cout << "On what horse do you wish to bet? (1, 2, 3, 4, 5): ";
-    cin >> bet;
+    while (test)
+    {
+        cout << "On what horse do you wish to bet? (1, 2, 3, 4, 5): ";
+
+        cin >> bet;
+        if (bet > 5 || bet < 1)
+        {
+            cout << "Invalid choice!" << endl;
+        }
+
+        else
+            test = false;
+    }
     return bet;
 }

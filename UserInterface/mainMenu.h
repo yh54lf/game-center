@@ -14,7 +14,7 @@ public:
     void printMainMenu();
     void handleUserChoiceMainMenu();
     void printGames();
-    int userChoice();
+    string userChoice();
     void pause(int dur);
     void play();
 };

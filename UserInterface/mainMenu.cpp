@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <string>
 #include "mainMenu.h"
 #include "C:\Users\Benjamin\Desktop\CS 103\CS103_Project_GameCenter\Minesweeper\minesweeper.cpp"
 #include "C:\Users\Benjamin\Desktop\CS 103\CS103_Project_GameCenter\HorseRace\horseRace.cpp"
@@ -32,8 +33,8 @@ void GameCenter::printGames()
 
 void GameCenter::handleUserChoiceGames()
 {
-    int choice = GameCenter::userChoice();
-    if (choice == 1)
+    string choice = GameCenter::userChoice();
+    if (choice == "1")
     {
         if (userPoints >= 5)
         {
@@ -55,7 +56,7 @@ void GameCenter::handleUserChoiceGames()
         }
     }
 
-    else if (choice == 2)
+    else if (choice == "2")
     {
         if (userPoints >= 10)
         {
@@ -76,7 +77,7 @@ void GameCenter::handleUserChoiceGames()
             GameCenter::printGames();
         }
     }
-    else if (choice == 3)
+    else if (choice == "3")
     {
         if (userPoints >= 10)
         {
@@ -96,7 +97,7 @@ void GameCenter::handleUserChoiceGames()
             GameCenter::printGames();
         }
     }
-    else if (choice == 4)
+    else if (choice == "4")
     {
         // if user chooses Back option, he gets returned to main menu
         GameCenter::printMainMenu();
@@ -107,16 +108,34 @@ void GameCenter::handleUserChoiceGames()
         // Invalid choice
         cout << "Invalid choice" << endl;
         cout << endl;
+        pause(2);
+
         GameCenter::printGames();
+        return;
     }
 }
 
-int GameCenter::userChoice()
+string GameCenter::userChoice()
 {
+    bool test = true;
+    string choice;
     // Returns the choice user enters
-    cout << "Enter your choice: ";
-    int choice;
-    cin >> choice;
+    while (test)
+    {
+        cout << "Enter your choice: ";
+
+        getline(cin, choice);
+        if (choice.length() != 1)
+        {
+            cout << "Please enter only one number." << endl;
+            pause(1);
+
+            cout << endl;
+        }
+        else
+            test = false;
+    }
+
     return choice;
 }
 void GameCenter::printMainMenu()
@@ -132,8 +151,10 @@ void GameCenter::printMainMenu()
 }
 void GameCenter::handleUserChoiceMainMenu()
 {
-    int choice = GameCenter::userChoice();
-    if (choice == 1)
+
+    string choice = GameCenter::userChoice();
+
+    if (choice == "1")
     {
         // List the available games in the game center
 
@@ -141,7 +162,7 @@ void GameCenter::handleUserChoiceMainMenu()
     }
     // if user chooses Back option, he gets returned to main menu
 
-    else if (choice == 2)
+    else if (choice == "2")
     {
         // Quit the program
         cout << endl;
@@ -157,6 +178,8 @@ void GameCenter::handleUserChoiceMainMenu()
     {
         // Invalid choice
         cout << "Invalid choice" << endl;
+        pause(2);
+
         cout << endl;
         GameCenter::printMainMenu();
     }

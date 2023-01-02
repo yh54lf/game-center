@@ -12,6 +12,7 @@ Blackjack::Blackjack()
 
 bool Blackjack::playGame()
 {
+
     srand(time(0));
     bool checkWinner;
 
@@ -21,7 +22,6 @@ bool Blackjack::playGame()
     if (playerTot == 21)
     {
         cout << "Blackjack! You win!" << endl;
-        cout << "You earn 10 points!" << endl;
 
         checkWinner = true;
         return checkWinner;
@@ -50,7 +50,6 @@ bool Blackjack::playGame()
     if (dealerTot > 21)
     {
         cout << "Dealer busted. You win!" << endl;
-        cout << "You earn 10 points!" << endl;
 
         checkWinner = true;
         return checkWinner;
@@ -132,14 +131,12 @@ bool Blackjack::determineWinner()
     if (playerTot > dealerTot)
     {
         cout << "Dealer busted. You win!" << endl;
-        cout << "You earn 10 points!" << endl;
 
         return true;
     }
     else if (playerTot > dealerTot)
     {
         cout << "You win!" << endl;
-        cout << "You earn 10 points!" << endl;
 
         return true;
     }

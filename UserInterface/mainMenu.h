@@ -17,4 +17,5 @@ public:
     string userChoice();
     void pause(int dur);
     void play();
+    int bet();
 };

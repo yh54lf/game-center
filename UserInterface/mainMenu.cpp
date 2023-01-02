@@ -20,11 +20,11 @@ void GameCenter::printGames()
     cout << "***************What game would you like to play?***************" << endl;
     cout << "Points: " << GameCenter::userPoints << endl;
     pause(1);
-    cout << "\t \t \t 1. Horse Race - 5points" << endl;
+    cout << "\t \t \t 1. Horse Race" << endl;
     pause(1);
-    cout << "\t \t \t 2. Minesweeper - 10points" << endl;
+    cout << "\t \t \t 2. Minesweeper" << endl;
     pause(1);
-    cout << "\t \t \t 3. BlackJack - 10points" << endl;
+    cout << "\t \t \t 3. BlackJack" << endl;
     pause(1);
     cout << "\t \t \t 4. Go Back " << endl;
     cout << "****************************************************************" << endl;
@@ -36,67 +36,56 @@ void GameCenter::handleUserChoiceGames()
     string choice = GameCenter::userChoice();
     if (choice == "1")
     {
-        if (userPoints >= 5)
-        {
-            userPoints = userPoints - 5;
-            Race start;
-            bool checkWinner = start.start();
-            if (checkWinner == true)
-                userPoints += 15;
+        int userBet = GameCenter::bet();
 
-            pause(2);
-            GameCenter::printGames();
+        Race start;
+        bool checkWinner = start.start();
+        if (checkWinner == true)
+        {
+            cout << "You earn " << userBet * 2 << "points!" << endl;
+            userPoints += userBet * 2;
         }
         else
-        {
-            cout << "You don't have enough points to play this game :(" << endl;
-            pause(2);
+            userPoints -= userBet;
 
-            GameCenter::printGames();
-        }
+        pause(2);
+        GameCenter::printGames();
     }
 
     else if (choice == "2")
     {
-        if (userPoints >= 10)
-        {
-            userPoints = userPoints - 10;
-            Minesweeper start;
-            bool checkWinner = start.playMinesweeper();
-            if (checkWinner == true)
-                userPoints += 20;
+        int userBet = GameCenter::bet();
 
-            pause(2);
-            GameCenter::printGames();
+        Minesweeper start;
+        bool checkWinner = start.playMinesweeper();
+        if (checkWinner == true)
+        {
+            cout << "You earn " << userBet * 2 << "points!" << endl;
+            userPoints += userBet * 2;
         }
         else
-        {
-            cout << "You don't have enough points to play this game :(" << endl;
-            pause(2);
+            userPoints -= userBet;
 
-            GameCenter::printGames();
-        }
+        pause(2);
+        GameCenter::printGames();
     }
     else if (choice == "3")
     {
-        if (userPoints >= 10)
+        int userBet = GameCenter::bet();
+        Blackjack start;
+        bool checkWinner = start.playGame();
+        if (checkWinner == true)
         {
-            userPoints = userPoints - 10;
-            Blackjack start;
-            bool checkWinner = start.playGame();
-            if (checkWinner == true)
-                userPoints += 20;
-
-            pause(2);
-            GameCenter::printGames();
+            cout << "You earn " << userBet * 2 << "points!" << endl;
+            userPoints += userBet * 2;
         }
         else
-        {
-            cout << "You don't have enough points to play this game :(" << endl;
-            pause(2);
-            GameCenter::printGames();
-        }
+            userPoints -= userBet;
+
+        pause(2);
+        GameCenter::printGames();
     }
+
     else if (choice == "4")
     {
         // if user chooses Back option, he gets returned to main menu
@@ -183,6 +172,27 @@ void GameCenter::handleUserChoiceMainMenu()
         cout << endl;
         GameCenter::printMainMenu();
     }
+}
+
+int GameCenter::bet()
+{
+    int bet;
+    bool check = true;
+    while (check)
+    {
+
+        cout << "How much points do you want to bet: ";
+        cin >> bet;
+        if (bet > userPoints || bet <= 0)
+        {
+            cout << "You do not have enough points!" << endl;
+        }
+        else
+        {
+            check = false;
+        }
+    }
+    return bet;
 }
 
 void GameCenter::pause(int dur)

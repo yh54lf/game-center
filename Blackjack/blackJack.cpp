@@ -74,10 +74,13 @@ void Blackjack::dealCards()
     cout << "You have been dealt: " << playerCard1 << " and " << playerCard2 << endl;
     pause(1);
     cout << "Your total is: " << playerTot << endl;
+    cout << endl;
+
     pause(3);
     cout << "The dealer has been dealt: " << dealerCard1 << " and " << dealerCard2 << endl;
     pause(1);
     cout << "The dealer's total is: " << dealerTot << endl;
+    cout << endl;
 }
 
 void Blackjack::playerTurn()

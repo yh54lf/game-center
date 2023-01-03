@@ -9,6 +9,7 @@ private:
 
 public:
     GameCenter();
+
     int userPoints;
     void handleUserChoiceGames();
     void printMainMenu();

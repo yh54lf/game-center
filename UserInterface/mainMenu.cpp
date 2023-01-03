@@ -169,7 +169,8 @@ void GameCenter::handleUserChoiceMainMenu()
         cout << "You have " << GameCenter::userPoints << " points." << endl;
         pause(1);
         cout << "Goodbye <3" << endl;
-        pause(10000000);
+        GameCenter::~GameCenter();
+        pause(1000000);
     }
 
     else

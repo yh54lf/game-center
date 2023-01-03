@@ -9,7 +9,7 @@ private:
 
 public:
     GameCenter();
-
+    ~GameCenter(){};
     int userPoints;
     void handleUserChoiceGames();
     void printMainMenu();

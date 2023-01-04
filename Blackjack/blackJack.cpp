@@ -70,14 +70,17 @@ void Blackjack::dealCards()
     playerTot = playerCard1 + playerCard2;
     dealerTot = dealerCard1 + dealerCard2;
 
+    cout << endl;
     pause(3);
     cout << "You have been dealt: " << playerCard1 << " and " << playerCard2 << endl;
     pause(1);
     cout << "Your total is: " << playerTot << endl;
+    cout << endl;
     pause(3);
     cout << "The dealer has been dealt: " << dealerCard1 << " and " << dealerCard2 << endl;
     pause(1);
     cout << "The dealer's total is: " << dealerTot << endl;
+    cout << endl;
 }
 
 void Blackjack::playerTurn()
@@ -85,25 +88,30 @@ void Blackjack::playerTurn()
     while (playerTot < 21)
     {
         cout << "Hit or stand (h/s)? ";
-        char choice;
+        string choice;
         cin >> choice;
 
-        if (choice == 'h' || choice == 'H')
+        if (choice == "h" || choice == "H")
         {
             int newCard = rand() % 10 + 1;
             pause(2);
+            cout << endl;
             cout << "You were dealt: " << newCard << endl;
             playerTot += newCard;
             pause(1);
             cout << "your total is: " << playerTot << endl;
+            cout << endl;
         }
-        else if (choice == 's' || choice == 'S')
+        else if (choice == "s" || choice == "S")
         {
             break;
         }
 
-        else
+        else if (choice.length() != 1)
             cout << "Invalid choice" << endl;
+
+        else
+            cout << "Invalid choice " << endl;
     }
 }
 void Blackjack::dealerTurn()
@@ -114,10 +122,12 @@ void Blackjack::dealerTurn()
         {
             int newCard = rand() % 10 + 1;
             pause(2);
+            cout << endl;
             cout << "Dealer was dealt: " << newCard << endl;
             dealerTot += newCard;
             pause(1);
             cout << "Dealer's total is now: " << dealerTot << endl;
+            cout << endl;
         }
         else
         {

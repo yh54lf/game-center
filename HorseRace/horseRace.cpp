@@ -77,11 +77,13 @@ int Race::start()
     }
     if (checkWinner == 1)
     {
-        cout << "You win";
+        cout << "You win" << endl;
+        ;
     }
     else
     {
-        cout << "You loose";
+        cout << "You loose" << endl;
+        ;
     }
     return checkWinner;
 }

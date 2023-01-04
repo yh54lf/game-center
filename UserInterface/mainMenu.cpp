@@ -27,6 +27,7 @@ void GameCenter::printGames()
     cout << "\t \t \t 3. BlackJack" << endl;
     pause(1);
     cout << "\t \t \t 4. Go Back " << endl;
+    pause(1);
     cout << "****************************************************************" << endl;
     GameCenter::handleUserChoiceGames();
 }
@@ -43,7 +44,7 @@ void GameCenter::handleUserChoiceGames()
         if (checkWinner == true)
         {
             cout << "You earn " << userBet * 2 << "points!" << endl;
-            userPoints += userBet * 2;
+            userPoints += userBet;
         }
         else
             userPoints -= userBet;
@@ -61,7 +62,7 @@ void GameCenter::handleUserChoiceGames()
         if (checkWinner == true)
         {
             cout << "You earn " << userBet * 2 << "points!" << endl;
-            userPoints += userBet * 2;
+            userPoints += userBet;
         }
         else
             userPoints -= userBet;
@@ -77,7 +78,7 @@ void GameCenter::handleUserChoiceGames()
         if (checkWinner == true)
         {
             cout << "You earn " << userBet * 2 << "points!" << endl;
-            userPoints += userBet * 2;
+            userPoints += userBet;
         }
         else
             userPoints -= userBet;
@@ -107,7 +108,7 @@ void GameCenter::handleUserChoiceGames()
 string GameCenter::userChoice()
 {
     bool test = true;
-    string choice;
+    string choice = "t";
     // Returns the choice user enters
     while (test)
     {
@@ -161,6 +162,7 @@ void GameCenter::handleUserChoiceMainMenu()
         pause(1);
         cout << "Goodbye <3" << endl;
         pause(2);
+        exit;
     }
 
     else
@@ -183,9 +185,14 @@ int GameCenter::bet()
 
         cout << "How much points do you want to bet: ";
         cin >> bet;
-        if (bet > userPoints || bet <= 0)
+        if (bet > userPoints || bet < 0)
         {
             cout << "You do not have enough points!" << endl;
+        }
+        else if (bet == 0)
+        {
+            GameCenter::printGames();
+            abort();
         }
         else
         {

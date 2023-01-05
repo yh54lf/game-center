@@ -126,12 +126,21 @@ string GameCenter::userChoice()
     // Returns the choice user enters
     while (test)
     {
+<<<<<<< HEAD
         boundary("Enter your choice: ");
+=======
+        cout << "Enter your choice (number): ";
+>>>>>>> main
 
         getline(cin, choice);
+        cout << endl;
         if (choice.length() != 1)
         {
+<<<<<<< HEAD
             boundary("Please enter only one number.\n");
+=======
+            cout << "Please enter a single choice." << endl;
+>>>>>>> main
             pause(1);
 
             cout << endl;
@@ -146,6 +155,7 @@ void GameCenter::printMainMenu()
 {
     // Display the main menu for the game center
     cout << endl;
+<<<<<<< HEAD
     boundary("***************Welcome to the game center!***************\n");
     cout << "Points: " << GameCenter::userPoints << endl;
     pause(1);
@@ -154,6 +164,21 @@ void GameCenter::printMainMenu()
     cout << "\t \t     2. Quit" << endl;
     pause(1);
     boundary("*********************************************************\n");
+=======
+    cout << "***************Welcome to the game center!***************" << endl;
+    pause(1);
+
+    cout << "Points: " << GameCenter::userPoints << endl;
+    pause(1);
+
+    cout << "\t \t  1. Play a game" << endl;
+    pause(1);
+
+    cout << "\t \t  2. Quit" << endl;
+    pause(1);
+
+    cout << "*********************************************************" << endl;
+>>>>>>> main
     GameCenter::handleUserChoiceMainMenu();
 }
 void GameCenter::handleUserChoiceMainMenu()
@@ -179,9 +204,15 @@ void GameCenter::handleUserChoiceMainMenu()
         cout << GameCenter::userPoints;
         cout << endl;
         pause(1);
+<<<<<<< HEAD
         boundary("Goodbye\n");
         pause(2);
         exit;
+=======
+        cout << "Goodbye <3" << endl;
+        GameCenter::~GameCenter();
+        pause(1000000);
+>>>>>>> main
     }
 
     else
@@ -201,10 +232,18 @@ int GameCenter::bet()
     bool check = true;
     while (check)
     {
+<<<<<<< HEAD
 
         boundary("How much points do you want to bet (enter 0 to go back): ");
         cin >> bet;
         if (bet > userPoints || bet < 0)
+=======
+        cout << endl;
+        cout << "How much points do you want to bet (type 0 to go back): ";
+        cin >> bet;
+        cout << endl;
+        if (bet > userPoints)
+>>>>>>> main
         {
             boundary("You do not have enough points!\n");
         }
@@ -213,6 +252,8 @@ int GameCenter::bet()
             GameCenter::printGames();
             abort();
         }
+        else if (bet == 0)
+            GameCenter::printGames();
         else
         {
             check = false;

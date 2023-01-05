@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <Windows.h>
+#include <MMSystem.h>
 #include "mainMenu.h"
 #include "C:\Users\Benjamin\Desktop\games\game-center\Minesweeper\minesweeper.cpp"
 #include "C:\Users\Benjamin\Desktop\games\game-center\HorseRace\horseRace.cpp"
@@ -13,11 +15,22 @@ GameCenter::GameCenter()
     points = 100;
     userPoints = points;
 }
+void GameCenter::boundary(string load)
+{
+    cout << endl;
+    short x = 0;
+    while (load[x] != '\0')
+    {
+        cout << load[x];
+        std::this_thread::sleep_for(std::chrono::milliseconds(17));
+
+        x++;
+    }
+}
 
 void GameCenter::printGames()
 {
-    cout << endl;
-    cout << "***************What game would you like to play?***************" << endl;
+    boundary("***************What game would you like to play?***************\n");
     cout << "Points: " << GameCenter::userPoints << endl;
     pause(1);
     cout << "\t \t \t 1. Horse Race" << endl;
@@ -28,7 +41,8 @@ void GameCenter::printGames()
     pause(1);
     cout << "\t \t \t 4. Go Back " << endl;
     pause(1);
-    cout << "****************************************************************" << endl;
+    boundary("****************************************************************\n");
+    cout << endl;
     GameCenter::handleUserChoiceGames();
 }
 
@@ -96,7 +110,7 @@ void GameCenter::handleUserChoiceGames()
     else
     {
         // Invalid choice
-        cout << "Invalid choice" << endl;
+        boundary("Invalid choice\n");
         cout << endl;
         pause(2);
 
@@ -112,12 +126,12 @@ string GameCenter::userChoice()
     // Returns the choice user enters
     while (test)
     {
-        cout << "Enter your choice: ";
+        boundary("Enter your choice: ");
 
         getline(cin, choice);
         if (choice.length() != 1)
         {
-            cout << "Please enter only one number." << endl;
+            boundary("Please enter only one number.\n");
             pause(1);
 
             cout << endl;
@@ -132,11 +146,14 @@ void GameCenter::printMainMenu()
 {
     // Display the main menu for the game center
     cout << endl;
-    cout << "***************Welcome to the game center!***************" << endl;
+    boundary("***************Welcome to the game center!***************\n");
     cout << "Points: " << GameCenter::userPoints << endl;
-    cout << "\t \t \t 1. Play a game" << endl;
-    cout << "\t \t \t 2. Quit" << endl;
-    cout << "*********************************************************" << endl;
+    pause(1);
+    cout << "\t \t     1. Play a game" << endl;
+    pause(1);
+    cout << "\t \t     2. Quit" << endl;
+    pause(1);
+    boundary("*********************************************************\n");
     GameCenter::handleUserChoiceMainMenu();
 }
 void GameCenter::handleUserChoiceMainMenu()
@@ -156,11 +173,13 @@ void GameCenter::handleUserChoiceMainMenu()
     {
         // Quit the program
         cout << endl;
-        cout << "Thank you for using the game center!" << endl;
+        boundary("Thank you for using the game center!\n");
         pause(1);
-        cout << "You have " << GameCenter::userPoints << " points." << endl;
+        boundary("Points status: ");
+        cout << GameCenter::userPoints;
+        cout << endl;
         pause(1);
-        cout << "Goodbye <3" << endl;
+        boundary("Goodbye\n");
         pause(2);
         exit;
     }
@@ -168,7 +187,7 @@ void GameCenter::handleUserChoiceMainMenu()
     else
     {
         // Invalid choice
-        cout << "Invalid choice" << endl;
+        boundary("Invalid choice\n");
         pause(2);
 
         cout << endl;
@@ -183,11 +202,11 @@ int GameCenter::bet()
     while (check)
     {
 
-        cout << "How much points do you want to bet: ";
+        boundary("How much points do you want to bet (enter 0 to go back): ");
         cin >> bet;
         if (bet > userPoints || bet < 0)
         {
-            cout << "You do not have enough points!" << endl;
+            boundary("You do not have enough points!\n");
         }
         else if (bet == 0)
         {
@@ -202,9 +221,9 @@ int GameCenter::bet()
     return bet;
 }
 
-void GameCenter::pause(int dur)
+void GameCenter::pause(double dur)
 {
-    int temp = time(NULL) + dur;
+    double temp = time(NULL) + dur;
     while (temp > time(NULL))
         ;
 }

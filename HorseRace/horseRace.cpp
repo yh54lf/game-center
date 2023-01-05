@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <stdlib.h>
 #include <ctime>
 #include <chrono>
 #include <thread>
@@ -74,6 +75,7 @@ int Race::start()
         }
 
         sleep(400); // sleep for the specified time interval
+        system("cls");
     }
     if (checkWinner == 1)
     {
@@ -104,6 +106,7 @@ void Race::printLane(int horseNum)
             cout << "."; // prints a period to represent empty track elsewise
         }
     }
+
     cout << endl; // creates a newline
 }
 int Race::horseBet()

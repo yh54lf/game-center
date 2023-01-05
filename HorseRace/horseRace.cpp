@@ -84,33 +84,7 @@ int Race::start()
     }
     else
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> develop
-        cout << "You loose" << endl;
-        ;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> develop
-=======
->>>>>>> develop
         cout << "You lost" << endl;
-=======
-        cout << "You loose" << endl;
-        ;
->>>>>>> develop
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> develop
-=======
->>>>>>> main
->>>>>>> develop
     }
     return checkWinner;
 }
@@ -131,7 +105,6 @@ void Race::printLane(int horseNum)
             cout << "."; // prints a period to represent empty track elsewise
         }
     }
-
     cout << endl; // creates a newline
 }
 int Race::horseBet()

@@ -16,7 +16,8 @@ public:
     void handleUserChoiceMainMenu();
     void printGames();
     string userChoice();
-    void pause(int dur);
+    void pause(double dur);
     void play();
     int bet();
+    void boundary(string load);
 };

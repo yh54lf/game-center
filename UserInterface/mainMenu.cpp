@@ -208,7 +208,7 @@ int GameCenter::bet()
     return bet;
 }
 
-void GameCenter::pause(int dur)
+void GameCenter::pause(double dur)
 {
     int temp = time(NULL) + dur;
     while (temp > time(NULL))

@@ -85,10 +85,21 @@ int Race::start()
     else
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        cout << "You loose" << endl;
+        ;
+=======
+<<<<<<< HEAD
+>>>>>>> develop
         cout << "You lost" << endl;
 =======
         cout << "You loose" << endl;
         ;
+>>>>>>> develop
+<<<<<<< HEAD
+=======
+>>>>>>> main
 >>>>>>> develop
     }
     return checkWinner;

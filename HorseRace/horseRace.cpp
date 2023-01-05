@@ -86,11 +86,17 @@ int Race::start()
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> develop
         cout << "You loose" << endl;
         ;
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> develop
+=======
 >>>>>>> develop
         cout << "You lost" << endl;
 =======
@@ -98,6 +104,10 @@ int Race::start()
         ;
 >>>>>>> develop
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> develop
 =======
 >>>>>>> main
 >>>>>>> develop
